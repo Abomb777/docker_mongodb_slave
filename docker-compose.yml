@@ -17,5 +17,5 @@ services:
       - MONGODB_PRIMARY_HOST=${MONGODB_PRIMARY_HOST}
       - MONGODB_PRIMARY_ROOT_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
 #      - MONGODB_REPLICA_SET_KEY=${MONGODB_REPLICA_SET_KEY}
-    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile" ]
+    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile", "--replSet", "rs0" ]
 #    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs0" ]
