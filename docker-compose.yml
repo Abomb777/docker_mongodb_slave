@@ -12,7 +12,7 @@ services:
       - ./config/mongo-keyfile:/opt/mongo/mongo-keyfile:ro
       - ./config/hosts:/etc/hosts:ro
 #      - ./config:/opt/mongo:ro
-    command: bash -c "sh /opt/mongo/deployment_scripts.sh"
+    command: sh -c "sh /opt/mongo/deployment_scripts.sh"
     # "cat /opt/mongo/hosts >> /etc/hosts"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=${MONGODB_ADVERTISED_HOSTNAME}
