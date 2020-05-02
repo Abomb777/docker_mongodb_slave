@@ -10,11 +10,12 @@ services:
     restart: always
     volumes:
       - ./config:/opt/mongo
+    command: cat /opt/mongo/hosts >> /etc/hosts
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=${MONGODB_ADVERTISED_HOSTNAME}
 #      - MONGODB_REPLICA_SET_MODE=secondary
       - MONGODB_PRIMARY_HOST=${MONGODB_PRIMARY_HOST}
       - MONGODB_PRIMARY_ROOT_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
 #      - MONGODB_REPLICA_SET_KEY=${MONGODB_REPLICA_SET_KEY}
-    entrypoint: [ "/usr/bin/mongod", "--slave", "--source", "192.168.1.2:27017", "--keyFile", "/tmp/dbconfig/mongo-kfile", "--autoresync" ]
+    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile" ]
 #    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs0" ]

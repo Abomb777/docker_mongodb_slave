@@ -1,3 +1,5 @@
 .env
 config/mongo-keyfile
 mongo-keyfile
+hosts
+config/hosts
