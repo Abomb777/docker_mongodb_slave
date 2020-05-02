@@ -12,7 +12,7 @@ services:
 #      - ./config/mongo-keyfile:/opt/mongo/mongo-keyfile:ro
 #      - ./config/hosts:/etc/hosts:ro
       - ./config:/opt/mongo:ro
-    command: sh -c "sh /opt/mongo/deployment_scripts.sh"
+    #command: sh -c "sh /opt/mongo/deployment_scripts.sh"
     # "cat /opt/mongo/hosts >> /etc/hosts"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=${MONGODB_ADVERTISED_HOSTNAME}
@@ -20,5 +20,6 @@ services:
       - MONGODB_PRIMARY_HOST=${MONGODB_PRIMARY_HOST}
       - MONGODB_PRIMARY_ROOT_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
 #      - MONGODB_REPLICA_SET_KEY=${MONGODB_REPLICA_SET_KEY}
-    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile", "--replSet", "rs0" ]
+#    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile", "--replSet", "rs0" ]
 #    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs0" ]
+     entrypoint: /opt/mongo/deployment_scripts.sh
