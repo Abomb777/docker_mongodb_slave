@@ -9,7 +9,9 @@ services:
       - "27018:27017"
     restart: always
     volumes:
-      - ./config:/opt/mongo:ro
+      - ./config/mongo-keyfile:/opt/mongo/mongo-keyfile:ro
+      - ./config/hosts:/etc/hosts:ro
+#      - ./config:/opt/mongo:ro
     #command: bash /opt/mongo/deployment_scripts.sh
     # "cat /opt/mongo/hosts >> /etc/hosts"
     environment:
