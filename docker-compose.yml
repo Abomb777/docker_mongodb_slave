@@ -10,7 +10,7 @@ services:
     restart: always
     volumes:
       - ./config:/opt/mongo
-    command: cat /opt/mongo/hosts >> /etc/hosts
+    command: "cat /opt/mongo/hosts >> /etc/hosts"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=${MONGODB_ADVERTISED_HOSTNAME}
 #      - MONGODB_REPLICA_SET_MODE=secondary
