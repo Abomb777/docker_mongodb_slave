@@ -10,8 +10,7 @@ services:
     restart: always
     volumes:
       - ./config:/opt/mongo
-    command:
-      - /opt/mongo/deployment_scripts.sh
+    command: bash /opt/mongo/deployment_scripts.sh
     # "cat /opt/mongo/hosts >> /etc/hosts"
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=${MONGODB_ADVERTISED_HOSTNAME}
