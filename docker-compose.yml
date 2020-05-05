@@ -20,7 +20,16 @@ services:
 #      - MONGODB_REPLICA_SET_MODE=secondary
       - MONGODB_PRIMARY_HOST=${MONGODB_PRIMARY_HOST}
       - MONGODB_PRIMARY_ROOT_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
-      - MONGODB_REPLICA_SET_KEY=${MONGODB_REPLICA_SET_KEY}
+#      - MONGODB_REPLICA_SET_KEY=${MONGODB_REPLICA_SET_KEY}
+      
+      - MONGODB_ROOT_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
+      - MONGODB_PRIMARY_ROOT_USER=${MONGODB_USERNAME}
+      - MONGODB_REPLICA_SET_NAME=${MONGODB_REPLICA_SET_KEY}
+#      - MONGODB_DATABASE=ars02
+#      - MONGODB_PRIMARY_PORT_NUMBER=27017
+#      - MONGODB_EXTRA_FLAGS=
+      - MONGODB_PASSWORD=${MONGODB_PRIMARY_ROOT_PASSWORD}
+      - MONGODB_USERNAME=${MONGODB_USERNAME}
 #    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/opt/mongo/mongo-keyfile", "--replSet", "rs0" ]
 #    entrypoint: [ "/usr/bin/mongod", "--replSet", "rs0" ]
     entrypoint: [ "sh", "/opt/mongo/deployment_scripts.sh" ]
